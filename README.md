@@ -5,13 +5,20 @@ Grapipe 브랜드 웹사이트. 정적 HTML/CSS/JS를 Cloudflare Workers(Static 
 ## 구조
 
 ```
-public/            배포되는 정적 파일 (index.html, 404.html, assets/, 파비콘, og-image.jpg ...)
-src/worker.js      www → apex 301 리다이렉트 + 보안 헤더, 나머지는 public/ 에서 서빙
+public/            배포되는 정적 파일 (index.html = 한국어, en/index.html = 영어, 404.html, assets/, 파비콘 ...)
+src/worker.js      www → apex 301, 언어 감지(/ → /en/), 보안 헤더, 나머지는 public/ 에서 서빙
 wrangler.jsonc     Worker 설정 (이름: grapipe-site, 커스텀 도메인 grapipe.com / www.grapipe.com)
 brand-assets/      원본 브랜드 에셋 (배포되지 않음)
 ```
 
 빌드 단계는 없습니다. `public/` 안의 파일을 직접 수정하면 됩니다.
+
+## 언어
+
+- 한국어 `/`, 영어 `/en/` — 문구를 바꾸면 두 파일을 함께 고치세요 (JSON-LD의 FAQ 포함).
+- `/` 접속 시: `lang` 쿠키가 있으면 그 언어, 없으면 `Accept-Language`에서 ko가 en보다 우선이 아니면 `/en/`으로 302.
+  헤더가 없는 요청(검색 로봇)은 한국어 그대로 → 두 페이지 모두 색인됩니다.
+- 헤더의 언어 버튼은 `?lang=ko|en` 으로 이동 → Worker가 쿠키를 저장하고 깨끗한 주소로 리다이렉트.
 
 ## 로컬 미리보기
 

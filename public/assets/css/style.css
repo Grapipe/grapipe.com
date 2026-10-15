@@ -98,6 +98,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-nav { display: flex; align-items: center; gap: 34px; font-size: 15px; }
 .site-nav a { color: var(--ink-2); transition: color .2s; }
 .site-nav a:hover { color: var(--ink); }
+.site-nav .lang-switch {
+  font-family: var(--font-latin); font-size: 14px; font-weight: 500; color: var(--ink-3);
+  padding-left: 22px; border-left: 1px solid var(--line-strong);
+}
+.site-nav .lang-switch:hover { color: var(--grape-dark); }
 .site-nav .nav-cta {
   padding: 9px 18px; border: 1px solid var(--line-strong); border-radius: 999px;
   color: var(--ink); font-weight: 600; transition: border-color .2s, background .2s;
@@ -146,6 +151,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .flow-mark .particle { fill: #fff; }
 .flow-mark .node { fill: var(--mist); stroke: var(--grape); stroke-width: 9; }
 .flow-mark .tip, .flow-mark .out { fill: var(--grape); }
+
+html[lang="en"] .hero h1, html[lang="en"] .stage-head h2, html[lang="en"] .contact-copy h2 { letter-spacing: -0.025em; }
+html[lang="en"] .service h3 { line-height: 1.25; }
 
 /* ---------- The pipe ---------- */
 .stage { position: relative; padding: var(--pad) 0; }
@@ -312,6 +320,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .notfound { min-height: 100vh; display: grid; place-content: center; justify-items: center; gap: 22px; padding: 40px var(--gutter); text-align: center; }
 .notfound img { width: 88px; height: 88px; }
 .notfound h1 { font-size: clamp(24px, 4vw, 34px); font-weight: 650; letter-spacing: -0.03em; }
+.notfound-en { margin-top: -10px; font-family: var(--font-latin); color: var(--ink-3); }
+.notfound-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 28px; margin-top: 12px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
@@ -333,6 +343,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   }
   .site-nav.open { opacity: 1; visibility: visible; transform: none; }
   .site-nav a { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .site-nav .lang-switch { padding-left: 0; border-left: 0; }
   .site-nav .nav-cta { margin-top: 18px; text-align: center; border: 1px solid var(--ink); }
 
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }

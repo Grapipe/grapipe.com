@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grapipe | Local AI, Workflow Automation &amp; Web Development</title>
+  <meta name="description" content="An independent developer building local AI (LLM) setups, workflow automation, vibe-coded prototypes, and websites and web services, from the first conversation to launch. Small projects welcome.">
+  <link rel="canonical" href="https://grapipe.com/en/">
+  <link rel="alternate" hreflang="ko" href="https://grapipe.com/">
+  <link rel="alternate" hreflang="en" href="https://grapipe.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://grapipe.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Grapipe">
+  <meta property="og:url" content="https://grapipe.com/en/">
+  <meta property="og:title" content="Grapipe — Scattered work, one clear flow">
+  <meta property="og:description" content="Local AI setups, workflow automation, vibe coding, and development from plan to launch. One developer who talks with you and builds it.">
+  <meta property="og:image" content="https://grapipe.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Grapipe logo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light only">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://grapipe.com/#website",
+        "url": "https://grapipe.com/",
+        "name": "Grapipe",
+        "inLanguage": ["ko", "en"],
+        "publisher": { "@id": "https://grapipe.com/#org" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://grapipe.com/#org",
+        "name": "Grapipe",
+        "url": "https://grapipe.com/",
+        "logo": "https://grapipe.com/android-chrome-512.png",
+        "image": "https://grapipe.com/og-image.png",
+        "email": "support@grapipe.com",
+        "description": "A brand run by an independent developer, taking on local AI setups, workflow automation, vibe coding, and development from plan to launch.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@grapipe.com",
+          "availableLanguage": ["Korean", "English"]
+        },
+        "knowsAbout": ["Local AI", "LLM", "RAG", "Workflow automation", "Vibe coding", "Web development"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://grapipe.com/en/#faq",
+        "inLanguage": "en",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can I ask about a very small job?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single spreadsheet script or one simple page is fine." } },
+          { "@type": "Question", "name": "How is pricing decided?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on scope and duration, so there is no fixed price list. We agree on the scope first, then I send a quote." } },
+          { "@type": "Question", "name": "Do I need special hardware for local AI?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on the size of the model. I check your current PC or server specs first, then lay out what is possible with them and when extra hardware would be needed." } },
+          { "@type": "Question", "name": "What if I don't know much about development?", "acceptedAnswer": { "@type": "Answer", "text": "That's fine. Tell me the result you want, and I'll explain the technical choices and the reasons behind them." } },
+          { "@type": "Question", "name": "How is working with an individual different from a company?", "acceptedAnswer": { "@type": "Answer", "text": "One person handles everything, so there are fewer layers of communication. On the other hand, I take on fewer projects at a time, so the schedule may need to be arranged depending on when you reach out." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/en/" aria-label="Grapipe home">
+        <img src="/assets/logo/grapipe-horizontal-color.svg" alt="Grapipe" width="146" height="37">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Open menu</span>
+        <span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main menu">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#principles">Principles</a>
+        <a href="#faq">FAQ</a>
+        <a class="lang-switch" href="/?lang=ko" hreflang="ko" lang="ko" data-set-lang="ko">한국어</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>Scattered work,<br>one clear flow.</h1>
+          <p class="lead">
+            Local AI setups, workflow automation, vibe coding, and development from plan to launch.
+            Grapipe is one developer who talks with you and builds it, start to finish.
+          </p>
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Start a project</a>
+            <a class="text-link" href="#services">See what I do</a>
+          </div>
+        </div>
+
+        <figure class="hero-visual" aria-hidden="true">
+          <svg class="flow-mark" viewBox="20 8 160 180" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <path id="r0" d="M154 28H118Q100 28 100 46V78"/>
+              <path id="r1" d="M50 78L75 121L100 164"/>
+              <path id="r2" d="M100 78L75 121L100 164"/>
+              <path id="r3" d="M100 78L125 121L100 164"/>
+              <path id="r4" d="M150 78L125 121L100 164"/>
+            </defs>
+            <path class="pipe" d="M56.53 89.24L68.47 109.76M93.47 89.24L81.53 109.76M106.53 89.24L118.47 109.76M143.47 89.24L131.53 109.76M81.53 132.24L100 164M118.47 132.24L100 164"/>
+            <path class="pipe pipe-round" d="M100 64V46Q100 28 118 28H136"/>
+            <g class="particles">
+              <circle class="particle" r="2.4"><animateMotion dur="2.2s" begin="0s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.6s" begin="-0.3s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.6s" begin="-1.0s" repeatCount="indefinite"><mpath href="#r2"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.6s" begin="-1.7s" repeatCount="indefinite"><mpath href="#r3"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.6s" begin="-0.6s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.6s" begin="-1.9s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion></circle>
+              <circle class="particle" r="2.4"><animateMotion dur="2.6s" begin="-2.2s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion></circle>
+            </g>
+            <circle class="tip" cx="154" cy="28" r="7"/>
+            <circle class="node" cx="50" cy="78" r="13"/>
+            <circle class="node" cx="100" cy="78" r="13"/>
+            <circle class="node" cx="150" cy="78" r="13"/>
+            <circle class="node" cx="75" cy="121" r="13"/>
+            <circle class="node" cx="125" cy="121" r="13"/>
+            <circle class="out" cx="100" cy="164" r="17"/>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <!-- The pipe: each section hangs off one vertical line, ending at the contact node -->
+    <div class="pipeline-page">
+
+      <section class="stage stage-name" id="about">
+        <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+        <div class="wrap stage-inner">
+          <span class="node-mark" aria-hidden="true"></span>
+          <div class="name-grid">
+            <p class="name-formula" aria-label="Grape plus Pipe">Grape <span>+</span> Pipe</p>
+            <div class="name-copy">
+              <p>
+                Data and repetitive tasks, scattered like a bunch of grapes, connected by pipes
+                into a single result. The nodes and lines in the logo draw that flow.
+              </p>
+              <p class="quiet">
+                Grapipe is run by an individual, not a company.
+                The person who first hears about your project is the person who builds it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage stage-tint" id="services">
+        <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+        <div class="wrap stage-inner">
+          <span class="node-mark" aria-hidden="true"></span>
+          <header class="stage-head">
+            <h2>Services</h2>
+            <p>I take on work in four areas. Small projects are welcome.</p>
+          </header>
+
+          <div class="service-list">
+            <article class="service">
+              <div class="service-title">
+                <h3>Local AI setup</h3>
+              </div>
+              <div class="service-body">
+                <p>
+                  AI for places where data can&rsquo;t be sent to outside services.
+                  I install open models on your own PCs or servers and connect them to your documents so they can be searched and summarized.
+                </p>
+                <p class="caveat">
+                  Local models can be less capable than large cloud models.
+                  We test with your real material first, then decide whether to go ahead.
+                </p>
+              </div>
+              <div class="service-meta">
+                <ul class="scope">
+                  <li>Q&amp;A over internal documents (RAG)</li>
+                  <li>Summarizing and sorting material that can&rsquo;t leave the company</li>
+                  <li>Choosing and installing a model that fits your hardware</li>
+                </ul>
+                <p class="tools">Ollama, llama.cpp, vLLM</p>
+              </div>
+            </article>
+
+            <article class="service">
+              <div class="service-title">
+                <h3>Workflow automation</h3>
+              </div>
+              <div class="service-body">
+                <p>
+                  Cut down the copy-pasting, spreadsheet cleanup and report writing you repeat every week,
+                  with scripts and service integrations.
+                </p>
+              </div>
+              <div class="service-meta">
+                <ul class="scope">
+                  <li>Cleaning up and aggregating Excel and Google Sheets data</li>
+                  <li>Web data collection and API integrations</li>
+                  <li>Email and messenger alerts, scheduled reports</li>
+                </ul>
+                <p class="tools">Python, Apps Script, n8n</p>
+              </div>
+            </article>
+
+            <article class="service">
+              <div class="service-title">
+                <h3>Vibe coding</h3>
+              </div>
+              <div class="service-body">
+                <p>
+                  Turn an idea into something that works, quickly, with AI coding tools.
+                  Code written by AI is still read and reviewed by me before it&rsquo;s handed over.
+                </p>
+              </div>
+              <div class="service-meta">
+                <ul class="scope">
+                  <li>Prototypes and MVPs to test an idea</li>
+                  <li>Reviewing and cleaning up AI-built projects that got stuck</li>
+                  <li>Setting up AI coding tools and showing you how to use them</li>
+                </ul>
+                <p class="tools">Claude Code, Cursor, Codex</p>
+              </div>
+            </article>
+
+            <article class="service">
+              <div class="service-title">
+                <h3>From plan to launch</h3>
+              </div>
+              <div class="service-body">
+                <p>
+                  Requirements, screen design, development, deployment and handover,
+                  handled by one person from start to finish.
+                </p>
+              </div>
+              <div class="service-meta">
+                <ul class="scope">
+                  <li>Websites and landing pages</li>
+                  <li>Web services, admin panels and internal tools</li>
+                  <li>Server, domain and deployment setup</li>
+                </ul>
+                <p class="tools">TypeScript, React, Node.js, Cloudflare</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage" id="process">
+        <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+        <div class="wrap stage-inner">
+          <span class="node-mark" aria-hidden="true"></span>
+          <header class="stage-head">
+            <h2>How it works</h2>
+            <p>What happens at each step, from your first message to handover.</p>
+          </header>
+
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <h3>Inquiry</h3>
+              <p>Email me your situation and the result you want. It doesn&rsquo;t need to be organized.</p>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <h3>Consultation</h3>
+              <p>We sort out what you need and what you don&rsquo;t, and set the scope.</p>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <h3>Quote and schedule</h3>
+              <p>Scope, cost and timeline are written down and agreed before work starts.</p>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <h3>Development</h3>
+              <p>I share progress along the way, so a wrong direction gets caught early.</p>
+            </li>
+            <li>
+              <span class="step-num">5</span>
+              <h3>Handover</h3>
+              <p>You get the result together with how to use it and what&rsquo;s needed to run it.</p>
+            </li>
+            <li>
+              <span class="step-num">6</span>
+              <h3>Afterwards <small>(optional)</small></h3>
+              <p>If needed, I keep handling changes and maintenance.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="stage stage-tint" id="principles">
+        <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+        <div class="wrap stage-inner">
+          <span class="node-mark" aria-hidden="true"></span>
+          <header class="stage-head">
+            <h2>Because it&rsquo;s one person,<br>here&rsquo;s what I stick to</h2>
+          </header>
+
+          <div class="principles">
+            <div class="principle">
+              <h3>The person you talk to builds it</h3>
+              <p>No middleman. The person you spoke with designs it and writes the code.</p>
+            </div>
+            <div class="principle">
+              <h3>I only promise what I can deliver</h3>
+              <p>If the work isn&rsquo;t a good fit or the timing doesn&rsquo;t work, I&rsquo;ll say so before we start.</p>
+            </div>
+            <div class="principle">
+              <h3>I don&rsquo;t take on many projects at once</h3>
+              <p>Depending on current work, the start date may need to be arranged.</p>
+            </div>
+            <div class="principle">
+              <h3>You can maintain it after handover</h3>
+              <p>Source code, setup steps and operating notes are handed over together.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage" id="faq">
+        <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+        <div class="wrap stage-inner">
+          <span class="node-mark" aria-hidden="true"></span>
+          <header class="stage-head">
+            <h2>Frequently asked questions</h2>
+          </header>
+
+          <div class="faq-list">
+            <details>
+              <summary>Can I ask about a very small job?</summary>
+              <p>Yes. A single spreadsheet script or one simple page is fine.</p>
+            </details>
+            <details>
+              <summary>How is pricing decided?</summary>
+              <p>It depends on scope and duration, so there&rsquo;s no fixed price list. We agree on the scope first, then I send a quote.</p>
+            </details>
+            <details>
+              <summary>Do I need special hardware for local AI?</summary>
+              <p>It depends on the size of the model. I check your current PC or server specs first, then lay out what&rsquo;s possible with them and when extra hardware would be needed.</p>
+            </details>
+            <details>
+              <summary>What if I don&rsquo;t know much about development?</summary>
+              <p>That&rsquo;s fine. Tell me the result you want, and I&rsquo;ll explain the technical choices and the reasons behind them.</p>
+            </details>
+            <details>
+              <summary>How is working with an individual different from a company?</summary>
+              <p>One person handles everything, so there are fewer layers of communication. On the other hand, I take on fewer projects at a time, so the schedule may need to be arranged depending on when you reach out.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage stage-end" id="contact">
+        <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+        <div class="wrap stage-inner">
+          <span class="node-mark node-out" aria-hidden="true"></span>
+          <div class="contact-grid">
+            <div class="contact-copy">
+              <h2>Whatever it is,<br>start with where things stand.</h2>
+              <p class="contact-lead">
+                It&rsquo;s fine if you&rsquo;re not sure exactly what you need. I&rsquo;ll reply as soon as I read your email.
+              </p>
+              <div class="mail-row">
+                <a class="mail" href="mailto:support@grapipe.com">support@grapipe.com</a>
+                <button class="copy" type="button" data-copy="support@grapipe.com">
+                  <span class="copy-label">Copy address</span>
+                </button>
+              </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <p class="form-hint">Fill this in and your mail app will open with the message ready.</p>
+              <div class="field">
+                <label for="f-type">Inquiry type</label>
+                <select id="f-type" name="type">
+                  <option>Local AI setup</option>
+                  <option>Workflow automation</option>
+                  <option>Vibe coding</option>
+                  <option>Development from plan to launch</option>
+                  <option>Other / not sure yet</option>
+                </select>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-name">Name or company</label>
+                  <input id="f-name" name="name" type="text" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="f-reply">How to reach you</label>
+                  <input id="f-reply" name="reply" type="text" autocomplete="email" placeholder="Email or phone">
+                </div>
+              </div>
+              <div class="field">
+                <label for="f-body">Message</label>
+                <textarea id="f-body" name="body" rows="5" required placeholder="Your situation, the result you want, a preferred timeline. Whatever is easiest."></textarea>
+                <p class="field-error" id="f-body-error" hidden>Please write a message.</p>
+              </div>
+              <button class="btn btn-block" type="submit">Write the inquiry in my mail app</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <img src="/assets/logo/grapipe-icon-color.svg" alt="" width="36" height="36">
+      <p class="footer-name">Grapipe <span>Independent developer</span></p>
+      <a class="footer-mail" href="mailto:support@grapipe.com">support@grapipe.com</a>
+      <p class="footer-copy">© <span id="year">2026</span> Grapipe</p>
+    </div>
+  </footer>
+</body>
+</html>
