@@ -21,26 +21,34 @@
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) setNav(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setNav(false); });
 
-  // Reveal on scroll: only hide what is below the fold at load, so nothing flashes.
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mark = document.querySelector(".flow-mark");
   if (reduce && mark && mark.pauseAnimations) mark.pauseAnimations();
-  if ("IntersectionObserver" in window && !reduce) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("pre");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    document.querySelectorAll(".reveal").forEach(function (el) {
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.92) {
-        el.classList.add("pre");
-        io.observe(el);
-      }
+
+  // The pipe: fill each section's rail up to a line just below mid-screen,
+  // and light a section's node once the flow has reached it.
+  var rails = Array.prototype.slice.call(document.querySelectorAll(".rail"));
+  var nodes = Array.prototype.slice.call(document.querySelectorAll(".node-mark"));
+  var ticking = false;
+  function updatePipe() {
+    ticking = false;
+    var anchor = window.innerHeight * 0.58;
+    rails.forEach(function (rail) {
+      var r = rail.getBoundingClientRect();
+      var f = r.height ? (anchor - r.top) / r.height : 0;
+      rail.style.setProperty("--fill", Math.max(0, Math.min(1, f)).toFixed(4));
+    });
+    nodes.forEach(function (node) {
+      var r = node.getBoundingClientRect();
+      node.classList.toggle("lit", r.top + r.height / 2 <= anchor);
     });
   }
+  function requestPipe() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(updatePipe); }
+  }
+  updatePipe();
+  window.addEventListener("scroll", requestPipe, { passive: true });
+  window.addEventListener("resize", requestPipe);
 
   // Copy email
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
@@ -49,8 +57,8 @@
       var text = btn.getAttribute("data-copy");
       var done = function () {
         btn.classList.add("done");
-        label.textContent = "복사됨";
-        setTimeout(function () { btn.classList.remove("done"); label.textContent = "복사"; }, 1800);
+        label.textContent = "복사했습니다";
+        setTimeout(function () { btn.classList.remove("done"); label.textContent = "주소 복사"; }, 1800);
       };
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(done, function () { window.prompt("이메일 주소", text); });
