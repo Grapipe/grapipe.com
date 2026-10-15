@@ -1,0 +1,69 @@
+---
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { T, SITE, EMAIL, blogBase, homePath, postPath, langOf, formatDate, isoDate, findTranslation, type Post } from "../lib/site";
+
+interface Props { post: Post }
+const { post } = Astro.props;
+const lang = langOf(post);
+const t = T[lang];
+const { Content } = await render(post);
+const translation = await findTranslation(post);
+const other = lang === "ko" ? "en" : "ko";
+const path = postPath(post);
+const alternates = translation
+  ? (lang === "ko" ? { ko: path, en: postPath(translation) } : { ko: postPath(translation), en: path })
+  : undefined;
+const switchHref = (translation ? postPath(translation) : homePath(other)) + `?lang=${other}`;
+const d = post.data;
+const org = { "@type": "Organization", name: "Grapipe", url: `${SITE}/`, logo: `${SITE}/android-chrome-512.png` };
+const jsonld = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: d.title,
+  description: d.description,
+  datePublished: d.date.toISOString(),
+  dateModified: (d.updated ?? d.date).toISOString(),
+  inLanguage: lang,
+  keywords: d.tags.join(", ") || undefined,
+  mainEntityOfPage: `${SITE}${path}`,
+  image: `${SITE}/og-image.png`,
+  author: org,
+  publisher: org,
+  isPartOf: { "@type": "Blog", "@id": `${SITE}${blogBase(lang)}#blog` },
+};
+---
+<Base lang={lang} title={`${d.title} | Grapipe`} ogTitle={d.title} description={d.description} path={path}
+      alternates={alternates} ogType="article" article={{ published: d.date, modified: d.updated, tags: d.tags }}
+      noindex={d.draft} jsonld={jsonld} switchHref={switchHref} showBlog>
+  <article class="post">
+    <header class="post-head wrap">
+      <p class="post-back"><a href={blogBase(lang)}>{t.allPosts}</a></p>
+      <div class="post-meta">
+        <time datetime={isoDate(d.date)}>{formatDate(d.date, lang)}</time>
+        {d.updated && <span>{t.updated} <time datetime={isoDate(d.updated)}>{formatDate(d.updated, lang)}</time></span>}
+        {d.draft && <span class="post-draft">{t.draft}</span>}
+      </div>
+      <h1>{d.title}</h1>
+      <p class="post-lead">{d.description}</p>
+      {d.tags.length > 0 && <ul class="post-tags">{d.tags.map((tag) => <li>{tag}</li>)}</ul>}
+      {translation && <p class="post-translation"><a href={`${postPath(translation)}?lang=${other}`} hreflang={other} lang={other} data-set-lang={other}>{t.readTranslation}</a></p>}
+    </header>
+
+    <div class="prose wrap">
+      <Content />
+    </div>
+
+    <aside class="post-cta wrap">
+      <div class="post-cta-inner">
+        <span class="node-mark node-out lit" aria-hidden="true"></span>
+        <h2>{t.ctaTitle}</h2>
+        <p>{t.ctaBody}</p>
+        <div class="post-cta-actions">
+          <a class="btn" href={`${homePath(lang)}#contact`}>{t.ctaButton}</a>
+          <a class="text-link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        </div>
+      </div>
+    </aside>
+  </article>
+</Base>

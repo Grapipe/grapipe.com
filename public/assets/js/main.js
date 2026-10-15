@@ -48,7 +48,7 @@
   // The pipe: fill each section's rail up to a line just below mid-screen,
   // and light a section's node once the flow has reached it.
   var rails = Array.prototype.slice.call(document.querySelectorAll(".rail"));
-  var nodes = Array.prototype.slice.call(document.querySelectorAll(".node-mark"));
+  var nodes = Array.prototype.slice.call(document.querySelectorAll(".stage .node-mark"));
   var ticking = false;
   function updatePipe() {
     ticking = false;

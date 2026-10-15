@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+import { T, SITE, getPosts, blogBase, homePath, postPath, formatDate, isoDate, type Lang } from "../lib/site";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = T[lang];
+const other: Lang = lang === "ko" ? "en" : "ko";
+const posts = await getPosts(lang);
+const otherPosts = await getPosts(other);
+
+const title = lang === "en" ? "Blog | Grapipe" : "글 | Grapipe";
+const description = lang === "en"
+  ? "Notes on local AI, workflow automation, vibe coding and web development from an independent developer."
+  : "로컬 AI, 업무 자동화, 바이브 코딩, 웹 개발을 하면서 알게 된 것들을 개인 개발자가 정리합니다.";
+const alternates = posts.length && otherPosts.length ? { ko: "/blog/", en: "/en/blog/" } : undefined;
+const switchHref = (otherPosts.length ? blogBase(other) : homePath(other)) + `?lang=${other}`;
+const jsonld = posts.length ? {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${SITE}${blogBase(lang)}#blog`,
+  url: `${SITE}${blogBase(lang)}`,
+  name: title,
+  description,
+  inLanguage: lang,
+  publisher: { "@type": "Organization", name: "Grapipe", url: `${SITE}/` },
+  blogPost: posts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.data.title,
+    url: `${SITE}${postPath(p)}`,
+    datePublished: p.data.date.toISOString(),
+  })),
+} : null;
+---
+<Base lang={lang} title={title} description={description} path={blogBase(lang)} alternates={alternates}
+      noindex={posts.length === 0} jsonld={jsonld} switchHref={switchHref} showBlog>
+  <div class="pipeline-page">
+    <section class="stage blog-index">
+      <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+      <div class="wrap stage-inner">
+        <span class="node-mark" aria-hidden="true"></span>
+        <header class="stage-head">
+          <h1>{t.blogTitle}</h1>
+          <p>{t.blogIntro}</p>
+        </header>
+        {posts.length === 0 ? (
+          <p class="blog-empty">{t.blogEmpty}</p>
+        ) : (
+          <ul class="post-list">
+            {posts.map((p) => (
+              <li>
+                <time datetime={isoDate(p.data.date)}>{formatDate(p.data.date, lang)}</time>
+                <h2><a href={postPath(p)}>{p.data.title}</a>{p.data.draft && <span class="post-draft">{t.draft}</span>}</h2>
+                <p>{p.data.description}</p>
+                {p.data.tags.length > 0 && <ul class="post-tags">{p.data.tags.map((tag) => <li>{tag}</li>)}</ul>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+  </div>
+</Base>

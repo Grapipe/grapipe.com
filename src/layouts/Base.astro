@@ -1,0 +1,84 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE, T, type Lang } from "../lib/site";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  path: string;                       // canonical path, e.g. "/blog/foo/"
+  alternates?: { ko?: string; en?: string; xDefault?: string };
+  ogType?: "website" | "article";
+  ogTitle?: string;
+  article?: { published: Date; modified?: Date; tags?: string[] };
+  noindex?: boolean;
+  jsonld?: object | null;
+  onHome?: boolean;                   // nav links are in-page anchors
+  switchHref: string;                 // where the language switch goes
+  showBlog: boolean;
+}
+
+const {
+  lang, title, description, path, alternates, ogType = "website", ogTitle, article,
+  noindex = false, jsonld = null, onHome = false, switchHref, showBlog,
+} = Astro.props;
+const t = T[lang];
+const canonical = new URL(path, SITE).href;
+const abs = (p: string) => new URL(p, SITE).href;
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  {alternates?.ko && <link rel="alternate" hreflang="ko" href={abs(alternates.ko)}>}
+  {alternates?.en && <link rel="alternate" hreflang="en" href={abs(alternates.en)}>}
+  {alternates?.xDefault && <link rel="alternate" hreflang="x-default" href={abs(alternates.xDefault)}>}
+  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}>
+
+  <meta property="og:type" content={ogType}>
+  <meta property="og:site_name" content="Grapipe">
+  <meta property="og:url" content={canonical}>
+  <meta property="og:title" content={ogTitle ?? title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={`${SITE}/og-image.png`}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={lang === "en" ? "Grapipe logo" : "Grapipe 로고"}>
+  <meta property="og:locale" content={lang === "en" ? "en_US" : "ko_KR"}>
+  {alternates?.ko && alternates?.en && <meta property="og:locale:alternate" content={lang === "en" ? "ko_KR" : "en_US"}>}
+  {article && <meta property="article:published_time" content={article.published.toISOString()}>}
+  {article?.modified && <meta property="article:modified_time" content={article.modified.toISOString()}>}
+  {article?.tags?.map((tag) => <meta property="article:tag" content={tag}>)}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light only">
+  {showBlog && <link rel="alternate" type="application/rss+xml" title={lang === "en" ? "Grapipe Blog" : "Grapipe 글"} href={lang === "en" ? "/en/blog/rss.xml" : "/blog/rss.xml"}>}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script is:inline src="/assets/js/main.js" defer></script>
+  {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
+</head>
+<body>
+  <a class="skip" href="#main">{t.skip}</a>
+  <Header lang={lang} onHome={onHome} switchHref={switchHref} showBlog={showBlog} />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer lang={lang} />
+</body>
+</html>

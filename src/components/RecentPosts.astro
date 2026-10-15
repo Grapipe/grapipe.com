@@ -1,0 +1,25 @@
+---
+import { T, blogBase, postPath, formatDate, isoDate, type Lang, type Post } from "../lib/site";
+interface Props { lang: Lang; posts: Post[] }
+const { lang, posts } = Astro.props;
+const t = T[lang];
+---
+<section class="stage stage-tint" id="recent">
+  <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
+  <div class="wrap stage-inner">
+    <span class="node-mark" aria-hidden="true"></span>
+    <header class="stage-head">
+      <h2>{t.recentPosts}</h2>
+    </header>
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li>
+          <time datetime={isoDate(p.data.date)}>{formatDate(p.data.date, lang)}</time>
+          <h3><a href={postPath(p)}>{p.data.title}</a></h3>
+          <p>{p.data.description}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="post-list-more"><a class="text-link" href={blogBase(lang)}>{t.morePosts}</a></p>
+  </div>
+</section>

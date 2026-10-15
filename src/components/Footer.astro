@@ -1,0 +1,12 @@
+---
+import { T, EMAIL, type Lang } from "../lib/site";
+const { lang } = Astro.props as { lang: Lang };
+---
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <img src="/assets/logo/grapipe-icon-color.svg" alt="" width="36" height="36">
+    <p class="footer-name">Grapipe <span>{T[lang].footerTag}</span></p>
+    <a class="footer-mail" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+    <p class="footer-copy">© <span id="year">{new Date().getFullYear()}</span> Grapipe</p>
+  </div>
+</footer>

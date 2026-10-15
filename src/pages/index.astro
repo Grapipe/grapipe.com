@@ -1,112 +1,117 @@
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Grapipe | 로컬 AI 구축, 업무 자동화, 웹 개발 — 개인 개발자</title>
-  <meta name="description" content="사내 문서용 로컬 AI(LLM) 구축, 엑셀·보고서 업무 자동화, 바이브 코딩 프로토타입, 웹사이트·웹 서비스 개발. 개인 개발자가 직접 상담하고 직접 만듭니다. 작은 작업도 문의할 수 있습니다.">
-  <link rel="canonical" href="https://grapipe.com/">
-  <link rel="alternate" hreflang="ko" href="https://grapipe.com/">
-  <link rel="alternate" hreflang="en" href="https://grapipe.com/en/">
-  <link rel="alternate" hreflang="x-default" href="https://grapipe.com/">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+---
+import Base from "../layouts/Base.astro";
+import RecentPosts from "../components/RecentPosts.astro";
+import { getPosts, BLOG_NAV_MIN_POSTS } from "../lib/site";
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Grapipe">
-  <meta property="og:url" content="https://grapipe.com/">
-  <meta property="og:title" content="Grapipe — 흩어진 일을 하나의 흐름으로">
-  <meta property="og:description" content="로컬 AI 구축, 업무 자동화, 바이브 코딩, 기획부터 배포까지. 개인 개발자가 직접 상담하고 직접 만듭니다.">
-  <meta property="og:image" content="https://grapipe.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Grapipe 로고">
-  <meta property="og:locale" content="ko_KR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#FFFFFF">
-  <meta name="color-scheme" content="light only">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/main.js" defer></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://grapipe.com/#website",
-        "url": "https://grapipe.com/",
-        "name": "Grapipe",
-        "inLanguage": ["ko", "en"],
-        "publisher": { "@id": "https://grapipe.com/#org" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://grapipe.com/#org",
-        "name": "Grapipe",
-        "url": "https://grapipe.com/",
-        "logo": "https://grapipe.com/android-chrome-512.png",
-        "image": "https://grapipe.com/og-image.png",
-        "email": "support@grapipe.com",
-        "description": "개인 개발자가 운영하는 브랜드. 로컬 AI 구축, 업무 자동화, 바이브 코딩, 기획부터 배포까지의 개발을 맡습니다.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "email": "support@grapipe.com",
-          "availableLanguage": ["Korean", "English"]
-        },
-        "knowsAbout": ["로컬 AI", "LLM", "RAG", "업무 자동화", "바이브 코딩", "웹 개발"]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://grapipe.com/#faq",
-        "inLanguage": "ko",
-        "mainEntity": [
-          { "@type": "Question", "name": "아주 작은 작업도 문의해도 되나요?", "acceptedAnswer": { "@type": "Answer", "text": "네. 엑셀 정리 스크립트 하나, 간단한 페이지 하나도 괜찮습니다." } },
-          { "@type": "Question", "name": "비용은 어떻게 정해지나요?", "acceptedAnswer": { "@type": "Answer", "text": "작업 범위와 기간에 따라 달라서 정해진 가격표는 두지 않았습니다. 상담으로 범위를 정한 뒤 견적을 드립니다." } },
-          { "@type": "Question", "name": "로컬 AI를 쓰려면 장비가 따로 필요한가요?", "acceptedAnswer": { "@type": "Answer", "text": "쓰려는 모델의 크기에 따라 다릅니다. 가지고 계신 PC·서버 사양을 먼저 확인하고, 그 안에서 가능한 방법과 추가 장비가 필요한 경우를 나눠 안내합니다." } },
-          { "@type": "Question", "name": "개발을 잘 몰라도 괜찮을까요?", "acceptedAnswer": { "@type": "Answer", "text": "괜찮습니다. 원하는 결과를 말씀해 주시면, 기술적인 선택은 이유와 함께 설명드립니다." } },
-          { "@type": "Question", "name": "회사가 아니라 개인이면 무엇이 다른가요?", "acceptedAnswer": { "@type": "Answer", "text": "한 사람이 처음부터 끝까지 맡기 때문에 소통 단계가 짧습니다. 대신 동시에 맡는 일이 적어, 문의 시점에 따라 일정 조율이 필요할 수 있습니다." } }
-        ]
+const lang = "ko";
+const posts = await getPosts(lang);
+const showBlog = posts.length >= BLOG_NAV_MIN_POSTS;
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://grapipe.com/#website",
+      "url": "https://grapipe.com/",
+      "name": "Grapipe",
+      "inLanguage": [
+        "ko",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://grapipe.com/#org"
       }
-    ]
-  }
-  </script>
-</head>
-<body>
-  <a class="skip" href="#main">본문으로 건너뛰기</a>
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://grapipe.com/#org",
+      "name": "Grapipe",
+      "url": "https://grapipe.com/",
+      "logo": "https://grapipe.com/android-chrome-512.png",
+      "image": "https://grapipe.com/og-image.png",
+      "email": "support@grapipe.com",
+      "description": "개인 개발자가 운영하는 브랜드. 로컬 AI 구축, 업무 자동화, 바이브 코딩, 기획부터 배포까지의 개발을 맡습니다.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@grapipe.com",
+        "availableLanguage": [
+          "Korean",
+          "English"
+        ]
+      },
+      "knowsAbout": [
+        "로컬 AI",
+        "LLM",
+        "RAG",
+        "업무 자동화",
+        "바이브 코딩",
+        "웹 개발"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://grapipe.com/#faq",
+      "inLanguage": "ko",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "아주 작은 작업도 문의해도 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 엑셀 정리 스크립트 하나, 간단한 페이지 하나도 괜찮습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "비용은 어떻게 정해지나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "작업 범위와 기간에 따라 달라서 정해진 가격표는 두지 않았습니다. 상담으로 범위를 정한 뒤 견적을 드립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "로컬 AI를 쓰려면 장비가 따로 필요한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "쓰려는 모델의 크기에 따라 다릅니다. 가지고 계신 PC·서버 사양을 먼저 확인하고, 그 안에서 가능한 방법과 추가 장비가 필요한 경우를 나눠 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "개발을 잘 몰라도 괜찮을까요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "괜찮습니다. 원하는 결과를 말씀해 주시면, 기술적인 선택은 이유와 함께 설명드립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "회사가 아니라 개인이면 무엇이 다른가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "한 사람이 처음부터 끝까지 맡기 때문에 소통 단계가 짧습니다. 대신 동시에 맡는 일이 적어, 문의 시점에 따라 일정 조율이 필요할 수 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+<Base
+  lang={lang}
+  title="Grapipe | 로컬 AI 구축, 업무 자동화, 웹 개발 — 개인 개발자"
+  description="사내 문서용 로컬 AI(LLM) 구축, 엑셀·보고서 업무 자동화, 바이브 코딩 프로토타입, 웹사이트·웹 서비스 개발. 개인 개발자가 직접 상담하고 직접 만듭니다. 작은 작업도 문의할 수 있습니다."
+  ogTitle="Grapipe — 흩어진 일을 하나의 흐름으로"
+  path="/"
+  alternates={{ ko: "/", en: "/en/", xDefault: "/" }}
+  jsonld={jsonld}
+  onHome
+  switchHref="/en/?lang=en"
+  showBlog={showBlog}
+>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="/" aria-label="Grapipe 홈">
-        <img src="/assets/logo/grapipe-horizontal-color.svg" alt="Grapipe" width="146" height="37">
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="sr-only">메뉴 열기</span>
-        <span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
-        <a href="#services">할 수 있는 일</a>
-        <a href="#process">진행 방식</a>
-        <a href="#principles">일하는 원칙</a>
-        <a href="#faq">자주 묻는 질문</a>
-        <a class="lang-switch" href="/en/?lang=en" hreflang="en" lang="en" data-set-lang="en">EN</a>
-        <a class="nav-cta" href="#contact">문의하기</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
 
     <!-- Hero -->
     <section class="hero">
@@ -386,6 +391,8 @@
         </div>
       </section>
 
+      {showBlog && <RecentPosts lang={lang} posts={posts.slice(0, 3)} />}
+
       <section class="stage stage-end" id="contact">
         <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
         <div class="wrap stage-inner">
@@ -437,15 +444,4 @@
         </div>
       </section>
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <img src="/assets/logo/grapipe-icon-color.svg" alt="" width="36" height="36">
-      <p class="footer-name">Grapipe <span>개인 개발자 브랜드</span></p>
-      <a class="footer-mail" href="mailto:support@grapipe.com">support@grapipe.com</a>
-      <p class="footer-copy">© <span id="year">2026</span> Grapipe</p>
-    </div>
-  </footer>
-</body>
-</html>
+</Base>

@@ -1,112 +1,117 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Grapipe | Local AI, Workflow Automation &amp; Web Development</title>
-  <meta name="description" content="An independent developer building local AI (LLM) setups, workflow automation, vibe-coded prototypes, and websites and web services, from the first conversation to launch. Small projects welcome.">
-  <link rel="canonical" href="https://grapipe.com/en/">
-  <link rel="alternate" hreflang="ko" href="https://grapipe.com/">
-  <link rel="alternate" hreflang="en" href="https://grapipe.com/en/">
-  <link rel="alternate" hreflang="x-default" href="https://grapipe.com/">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+---
+import Base from "../../layouts/Base.astro";
+import RecentPosts from "../../components/RecentPosts.astro";
+import { getPosts, BLOG_NAV_MIN_POSTS } from "../../lib/site";
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Grapipe">
-  <meta property="og:url" content="https://grapipe.com/en/">
-  <meta property="og:title" content="Grapipe — Scattered work, one clear flow">
-  <meta property="og:description" content="Local AI setups, workflow automation, vibe coding, and development from plan to launch. One developer who talks with you and builds it.">
-  <meta property="og:image" content="https://grapipe.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Grapipe logo">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="ko_KR">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#FFFFFF">
-  <meta name="color-scheme" content="light only">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/main.js" defer></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://grapipe.com/#website",
-        "url": "https://grapipe.com/",
-        "name": "Grapipe",
-        "inLanguage": ["ko", "en"],
-        "publisher": { "@id": "https://grapipe.com/#org" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://grapipe.com/#org",
-        "name": "Grapipe",
-        "url": "https://grapipe.com/",
-        "logo": "https://grapipe.com/android-chrome-512.png",
-        "image": "https://grapipe.com/og-image.png",
-        "email": "support@grapipe.com",
-        "description": "A brand run by an independent developer, taking on local AI setups, workflow automation, vibe coding, and development from plan to launch.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "email": "support@grapipe.com",
-          "availableLanguage": ["Korean", "English"]
-        },
-        "knowsAbout": ["Local AI", "LLM", "RAG", "Workflow automation", "Vibe coding", "Web development"]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://grapipe.com/en/#faq",
-        "inLanguage": "en",
-        "mainEntity": [
-          { "@type": "Question", "name": "Can I ask about a very small job?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single spreadsheet script or one simple page is fine." } },
-          { "@type": "Question", "name": "How is pricing decided?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on scope and duration, so there is no fixed price list. We agree on the scope first, then I send a quote." } },
-          { "@type": "Question", "name": "Do I need special hardware for local AI?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on the size of the model. I check your current PC or server specs first, then lay out what is possible with them and when extra hardware would be needed." } },
-          { "@type": "Question", "name": "What if I don't know much about development?", "acceptedAnswer": { "@type": "Answer", "text": "That's fine. Tell me the result you want, and I'll explain the technical choices and the reasons behind them." } },
-          { "@type": "Question", "name": "How is working with an individual different from a company?", "acceptedAnswer": { "@type": "Answer", "text": "One person handles everything, so there are fewer layers of communication. On the other hand, I take on fewer projects at a time, so the schedule may need to be arranged depending on when you reach out." } }
-        ]
+const lang = "en";
+const posts = await getPosts(lang);
+const showBlog = posts.length >= BLOG_NAV_MIN_POSTS;
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://grapipe.com/#website",
+      "url": "https://grapipe.com/",
+      "name": "Grapipe",
+      "inLanguage": [
+        "ko",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://grapipe.com/#org"
       }
-    ]
-  }
-  </script>
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://grapipe.com/#org",
+      "name": "Grapipe",
+      "url": "https://grapipe.com/",
+      "logo": "https://grapipe.com/android-chrome-512.png",
+      "image": "https://grapipe.com/og-image.png",
+      "email": "support@grapipe.com",
+      "description": "A brand run by an independent developer, taking on local AI setups, workflow automation, vibe coding, and development from plan to launch.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@grapipe.com",
+        "availableLanguage": [
+          "Korean",
+          "English"
+        ]
+      },
+      "knowsAbout": [
+        "Local AI",
+        "LLM",
+        "RAG",
+        "Workflow automation",
+        "Vibe coding",
+        "Web development"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://grapipe.com/en/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I ask about a very small job?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A single spreadsheet script or one simple page is fine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is pricing decided?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on scope and duration, so there is no fixed price list. We agree on the scope first, then I send a quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need special hardware for local AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the size of the model. I check your current PC or server specs first, then lay out what is possible with them and when extra hardware would be needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I don't know much about development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's fine. Tell me the result you want, and I'll explain the technical choices and the reasons behind them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is working with an individual different from a company?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One person handles everything, so there are fewer layers of communication. On the other hand, I take on fewer projects at a time, so the schedule may need to be arranged depending on when you reach out."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+<Base
+  lang={lang}
+  title="Grapipe | Local AI, Workflow Automation & Web Development"
+  description="An independent developer building local AI (LLM) setups, workflow automation, vibe-coded prototypes, and websites and web services, from the first conversation to launch. Small projects welcome."
+  ogTitle="Grapipe — Scattered work, one clear flow"
+  path="/en/"
+  alternates={{ ko: "/", en: "/en/", xDefault: "/" }}
+  jsonld={jsonld}
+  onHome
+  switchHref="/?lang=ko"
+  showBlog={showBlog}
+>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="/en/" aria-label="Grapipe home">
-        <img src="/assets/logo/grapipe-horizontal-color.svg" alt="Grapipe" width="146" height="37">
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="sr-only">Open menu</span>
-        <span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Main menu">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#principles">Principles</a>
-        <a href="#faq">FAQ</a>
-        <a class="lang-switch" href="/?lang=ko" hreflang="ko" lang="ko" data-set-lang="ko">한국어</a>
-        <a class="nav-cta" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
 
     <!-- Hero -->
     <section class="hero">
@@ -382,6 +387,8 @@
         </div>
       </section>
 
+      {showBlog && <RecentPosts lang={lang} posts={posts.slice(0, 3)} />}
+
       <section class="stage stage-end" id="contact">
         <span class="rail" aria-hidden="true"><span class="rail-fill"></span></span>
         <div class="wrap stage-inner">
@@ -433,15 +440,4 @@
         </div>
       </section>
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <img src="/assets/logo/grapipe-icon-color.svg" alt="" width="36" height="36">
-      <p class="footer-name">Grapipe <span>Independent developer</span></p>
-      <a class="footer-mail" href="mailto:support@grapipe.com">support@grapipe.com</a>
-      <p class="footer-copy">© <span id="year">2026</span> Grapipe</p>
-    </div>
-  </footer>
-</body>
-</html>
+</Base>
