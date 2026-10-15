@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grapipe — 로컬 AI · 업무 자동화 · 개발</title>
+  <meta name="description" content="Grapipe는 개인 개발자가 운영하는 브랜드입니다. 로컬 AI 구축, 업무 자동화, 바이브 코딩, 기획부터 배포까지의 개발을 직접 상담하고 직접 만듭니다.">
+  <link rel="canonical" href="https://grapipe.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Grapipe">
+  <meta property="og:url" content="https://grapipe.com/">
+  <meta property="og:title" content="Grapipe — 흩어진 일을 하나의 흐름으로">
+  <meta property="og:description" content="로컬 AI 구축, 업무 자동화, 바이브 코딩, 기획부터 배포까지. 개인 개발자가 직접 상담하고 직접 만듭니다.">
+  <meta property="og:image" content="https://grapipe.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1F1631">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Grapipe 홈">
+        <img src="/assets/logo/grapipe-horizontal-white.svg" alt="Grapipe" width="142" height="36">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">메뉴 열기</span>
+        <span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="#services">할 수 있는 일</a>
+        <a href="#process">진행 방식</a>
+        <a href="#principles">일하는 원칙</a>
+        <a href="#faq">자주 묻는 질문</a>
+        <a class="btn btn-sm" href="#contact">문의하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Local AI · Automation · Vibe Coding · Development</p>
+          <h1 class="reveal">흩어진 일을,<br><span class="accent">하나의 흐름으로.</span></h1>
+          <p class="lead reveal">
+            로컬 AI 구축, 업무 자동화, 바이브 코딩, 기획부터 배포까지의 개발.<br class="br-wide">
+            Grapipe는 개인 개발자가 직접 상담하고, 직접 만듭니다.
+          </p>
+          <div class="hero-cta reveal">
+            <a class="btn" href="#contact">프로젝트 문의하기</a>
+            <a class="btn btn-ghost" href="#services">할 수 있는 일 보기</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="flow-mark" viewBox="20 8 160 180" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="outGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#7A4FC6" stop-opacity=".6"/>
+                <stop offset="100%" stop-color="#7A4FC6" stop-opacity="0"/>
+              </radialGradient>
+              <path id="r1" d="M50 78L75 121L100 164"/>
+              <path id="r2" d="M100 78L75 121L100 164"/>
+              <path id="r3" d="M100 78L125 121L100 164"/>
+              <path id="r4" d="M150 78L125 121L100 164"/>
+              <path id="r0" d="M154 28H118Q100 28 100 46V78"/>
+            </defs>
+            <circle class="out-glow" cx="100" cy="164" r="38" fill="url(#outGlow)"/>
+            <!-- pipes (brand symbol geometry) -->
+            <path class="pipe" d="M56.53 89.24L68.47 109.76M93.47 89.24L81.53 109.76M106.53 89.24L118.47 109.76M143.47 89.24L131.53 109.76M81.53 132.24L100 164M118.47 132.24L100 164"/>
+            <path class="pipe pipe-round" d="M100 64V46Q100 28 118 28H136"/>
+            <!-- data moving through the pipes -->
+            <g class="particles">
+              <circle class="particle" r="3.4"><animateMotion dur="2.2s" begin="-0s" repeatCount="indefinite" calcMode="linear"><mpath href="#r0"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite" calcMode="linear"><mpath href="#r0"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.6s" begin="-0.3s" repeatCount="indefinite" calcMode="linear"><mpath href="#r1"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.6s" begin="-1.0s" repeatCount="indefinite" calcMode="linear"><mpath href="#r2"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.6s" begin="-1.7s" repeatCount="indefinite" calcMode="linear"><mpath href="#r3"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.6s" begin="-0.6s" repeatCount="indefinite" calcMode="linear"><mpath href="#r4"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.6s" begin="-1.9s" repeatCount="indefinite" calcMode="linear"><mpath href="#r1"/></animateMotion></circle>
+              <circle class="particle" r="3.4"><animateMotion dur="2.6s" begin="-2.2s" repeatCount="indefinite" calcMode="linear"><mpath href="#r4"/></animateMotion></circle>
+            </g>
+            <!-- nodes -->
+            <circle class="tip" cx="154" cy="28" r="7"/>
+            <circle class="node n1" cx="50" cy="78" r="13"/>
+            <circle class="node n2" cx="100" cy="78" r="13"/>
+            <circle class="node n3" cx="150" cy="78" r="13"/>
+            <circle class="node n4" cx="75" cy="121" r="13"/>
+            <circle class="node n5" cx="125" cy="121" r="13"/>
+            <circle class="out" cx="100" cy="164" r="17"/>
+          </svg>
+          <ul class="hero-labels">
+            <li class="l-in">input</li>
+            <li class="l-pipe">pipe</li>
+            <li class="l-out">output</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Name -->
+    <section class="name section-tight">
+      <div class="wrap name-inner">
+        <p class="name-formula reveal" aria-label="Grape 더하기 Pipe">
+          <span>Grape</span><span class="plus">+</span><span>Pipe</span>
+        </p>
+        <div class="name-copy reveal">
+          <p>
+            포도송이처럼 흩어진 데이터와 반복 업무를 파이프로 이어,
+            하나의 결과로 모읍니다. 로고의 노드와 선이 그 흐름을 그린 것입니다.
+          </p>
+          <p class="muted">
+            Grapipe는 회사가 아닌 개인이 운영합니다. 처음 이야기를 듣는 사람과 실제로 만드는 사람이 같습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Services</p>
+          <h2>할 수 있는 일</h2>
+          <p class="section-lead">네 가지 영역의 일을 맡습니다. 규모가 작아도 괜찮습니다.</p>
+        </header>
+
+        <div class="service-grid">
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="num">01</span>
+              <span class="tag-en">Local AI</span>
+            </div>
+            <h3>로컬 AI 구축</h3>
+            <p>
+              외부 서비스로 데이터를 보내기 어려운 환경을 위한 AI입니다.
+              오픈 모델을 사내 PC나 서버에 설치하고, 가지고 있는 문서를 검색·요약할 수 있게 연결합니다.
+            </p>
+            <ul class="checks">
+              <li>사내 문서 기반 질의응답 (RAG)</li>
+              <li>외부 반출이 어려운 자료의 요약·분류</li>
+              <li>보유 장비에 맞는 모델 선정과 설치</li>
+            </ul>
+            <p class="note">
+              로컬 모델은 대형 클라우드 모델보다 성능이 낮을 수 있습니다.
+              실제 업무 자료로 먼저 테스트해 보고 진행 여부를 정합니다.
+            </p>
+            <ul class="chips" aria-label="사용 기술">
+              <li>Ollama</li><li>llama.cpp</li><li>vLLM</li><li>RAG</li>
+            </ul>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="num">02</span>
+              <span class="tag-en">Automation</span>
+            </div>
+            <h3>업무 자동화</h3>
+            <p>
+              매주 반복되는 복사·붙여넣기, 엑셀 정리, 보고서 작성을
+              스크립트와 서비스 연동으로 줄입니다.
+            </p>
+            <ul class="checks">
+              <li>엑셀·구글 시트 데이터 정리와 집계</li>
+              <li>웹 데이터 수집, 외부 API 연동</li>
+              <li>메일·메신저 알림, 정기 보고서 자동 생성</li>
+            </ul>
+            <ul class="chips" aria-label="사용 기술">
+              <li>Python</li><li>Apps Script</li><li>n8n</li><li>REST API</li>
+            </ul>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="num">03</span>
+              <span class="tag-en">Vibe Coding</span>
+            </div>
+            <h3>바이브 코딩</h3>
+            <p>
+              AI 코딩 도구로 아이디어를 빠르게 동작하는 형태로 만듭니다.
+              AI가 작성한 코드도 직접 읽고 검토한 뒤 전달합니다.
+            </p>
+            <ul class="checks">
+              <li>아이디어 검증용 프로토타입·MVP</li>
+              <li>AI로 만들다 막힌 프로젝트의 점검과 정리</li>
+              <li>AI 코딩 도구 개발 환경 세팅과 사용법 안내</li>
+            </ul>
+            <ul class="chips" aria-label="사용 도구">
+              <li>Claude Code</li><li>Cursor</li><li>Codex</li>
+            </ul>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="num">04</span>
+              <span class="tag-en">A–Z Development</span>
+            </div>
+            <h3>기획부터 배포까지</h3>
+            <p>
+              요구사항 정리, 화면 설계, 개발, 배포, 운영 이관까지
+              한 사람이 처음부터 끝까지 맡습니다.
+            </p>
+            <ul class="checks">
+              <li>웹사이트, 랜딩 페이지</li>
+              <li>웹 서비스, 관리자 페이지, 내부 도구</li>
+              <li>서버·도메인·배포 환경 구성</li>
+            </ul>
+            <ul class="chips" aria-label="사용 기술">
+              <li>TypeScript</li><li>React</li><li>Node.js</li><li>Cloudflare</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Process</p>
+          <h2>진행 방식</h2>
+          <p class="section-lead">문의부터 전달까지, 각 단계에서 무엇을 하는지 미리 알려드립니다.</p>
+        </header>
+
+        <ol class="pipeline">
+          <li class="step reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="step-num">01</span>
+            <h3>문의</h3>
+            <p>지금 상황과 원하는 결과를 메일로 알려주세요. 정리되지 않은 상태여도 괜찮습니다.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="step-num">02</span>
+            <h3>상담</h3>
+            <p>필요한 것과 필요하지 않은 것을 함께 구분하고, 작업 범위를 정합니다.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="step-num">03</span>
+            <h3>견적·일정</h3>
+            <p>범위, 비용, 일정을 문서로 정리해 확인받은 뒤 시작합니다.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="step-num">04</span>
+            <h3>개발</h3>
+            <p>중간 결과를 공유하며 진행합니다. 방향이 다르면 일찍 바로잡습니다.</p>
+          </li>
+          <li class="step reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="step-num">05</span>
+            <h3>전달</h3>
+            <p>결과물과 함께 사용 방법, 운영에 필요한 내용을 정리해 전달합니다.</p>
+          </li>
+          <li class="step step-out reveal">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="step-num">06</span>
+            <h3>이후 <small>선택</small></h3>
+            <p>필요하면 수정과 유지보수를 이어서 맡습니다.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="principles" id="principles">
+      <div class="wrap principles-inner">
+        <header class="section-head reveal">
+          <p class="eyebrow">Principles</p>
+          <h2>개인이 하는 일이라서,<br>지키는 것들</h2>
+        </header>
+
+        <div class="principle-list">
+          <div class="principle reveal">
+            <h3>상담한 사람이 직접 만듭니다</h3>
+            <p>중간 전달자 없이, 이야기를 나눈 사람이 설계하고 코드를 작성합니다.</p>
+          </div>
+          <div class="principle reveal">
+            <h3>할 수 있는 만큼만 약속합니다</h3>
+            <p>맞지 않는 일이거나 일정이 어렵다면 시작하기 전에 먼저 말씀드립니다.</p>
+          </div>
+          <div class="principle reveal">
+            <h3>동시에 많은 일을 받지 않습니다</h3>
+            <p>진행 중인 작업에 따라 시작 시점을 조율해야 할 수 있습니다.</p>
+          </div>
+          <div class="principle reveal">
+            <h3>이후에도 관리할 수 있게 넘깁니다</h3>
+            <p>소스코드와 설정 방법, 운영에 필요한 문서를 함께 전달합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="wrap faq-inner">
+        <header class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>자주 묻는 질문</h2>
+        </header>
+
+        <div class="faq-list">
+          <details class="reveal">
+            <summary>아주 작은 작업도 문의해도 되나요?</summary>
+            <p>네. 엑셀 정리 스크립트 하나, 간단한 페이지 하나도 괜찮습니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>비용은 어떻게 정해지나요?</summary>
+            <p>작업 범위와 기간에 따라 달라서 정해진 가격표는 두지 않았습니다. 상담으로 범위를 정한 뒤 견적을 드립니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>로컬 AI를 쓰려면 장비가 따로 필요한가요?</summary>
+            <p>쓰려는 모델의 크기에 따라 다릅니다. 가지고 계신 PC·서버 사양을 먼저 확인하고, 그 안에서 가능한 방법과 추가 장비가 필요한 경우를 나눠 안내합니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>개발을 잘 몰라도 괜찮을까요?</summary>
+            <p>괜찮습니다. 원하는 결과를 말씀해 주시면, 기술적인 선택은 이유와 함께 설명드립니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>회사가 아니라 개인이면 무엇이 다른가요?</summary>
+            <p>한 사람이 처음부터 끝까지 맡기 때문에 소통 단계가 짧습니다. 대신 동시에 맡는 일이 적어, 문의 시점에 따라 일정 조율이 필요할 수 있습니다.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>어떤 일이든,<br>지금 상황부터 알려주세요.</h2>
+          <p class="section-lead">
+            무엇이 필요한지 정확히 몰라도 괜찮습니다. 메일을 확인하는 대로 답장드립니다.
+          </p>
+          <div class="mail-row">
+            <a class="mail" href="mailto:support@grapipe.com">support@grapipe.com</a>
+            <button class="copy" type="button" data-copy="support@grapipe.com">
+              <span class="copy-label">복사</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <p class="form-hint">아래 내용을 채우면 메일 앱에 문의 메일이 작성됩니다.</p>
+          <div class="field">
+            <label for="f-type">문의 유형</label>
+            <select id="f-type" name="type">
+              <option>로컬 AI 구축</option>
+              <option>업무 자동화</option>
+              <option>바이브 코딩</option>
+              <option>기획부터 배포까지 개발</option>
+              <option>기타 / 아직 모르겠음</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">이름 또는 회사명</label>
+              <input id="f-name" name="name" type="text" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="f-reply">회신받을 연락처</label>
+              <input id="f-reply" name="reply" type="text" autocomplete="email" placeholder="이메일 또는 전화번호">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-body">내용</label>
+            <textarea id="f-body" name="body" rows="5" required placeholder="지금 상황, 원하는 결과, 희망 일정 등을 편하게 적어주세요."></textarea>
+            <p class="field-error" id="f-body-error" hidden>내용을 입력해 주세요.</p>
+          </div>
+          <button class="btn btn-block" type="submit">메일로 문의 보내기</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <img src="/assets/logo/grapipe-icon-white.svg" alt="" width="40" height="40">
+        <div>
+          <p class="footer-name">Grapipe</p>
+          <p class="muted">Grape + Pipe · 개인 개발자 브랜드</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <a href="mailto:support@grapipe.com">support@grapipe.com</a>
+        <p class="muted">© <span id="year">2026</span> Grapipe</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
